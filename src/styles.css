@@ -1148,6 +1148,16 @@ img {
     border-radius: 999px;
     background: #050505;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(140%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .mobile-bottom-nav.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
   }
 
   .mobile-menu-button,
@@ -1188,6 +1198,7 @@ img {
   }
 
   .topbar {
+    display: none;
     flex-wrap: wrap;
   }
 
@@ -1202,7 +1213,9 @@ img {
   }
 
   .hero-section {
-    min-height: 520px;
+    min-height: calc(100svh - 12px);
+    margin-top: 0;
+    border-radius: 0 0 24px 24px;
   }
 
   .hero-copy {

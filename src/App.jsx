@@ -73,6 +73,7 @@ const faqs = [
 function App() {
   const [activeSlide, setActiveSlide] = useState(0)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [showMobileNav, setShowMobileNav] = useState(false)
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -80,6 +81,13 @@ function App() {
     }, 6000)
 
     return () => clearInterval(intervalId)
+  }, [])
+
+  useEffect(() => {
+    const handleScroll = () => setShowMobileNav(window.scrollY > 120)
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   const goToSlide = (direction) => {
@@ -124,7 +132,7 @@ function App() {
         </div>
       </aside>
 
-      <nav className="mobile-bottom-nav" aria-label="Mobile navigation">
+      <nav className={showMobileNav ? 'mobile-bottom-nav is-visible' : 'mobile-bottom-nav'} aria-label="Mobile navigation">
         <button type="button" className="mobile-menu-button" onClick={() => setMobileMenuOpen((open) => !open)}>
           {mobileMenuOpen ? 'Close' : 'Menu'}
         </button>

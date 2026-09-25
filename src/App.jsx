@@ -90,6 +90,11 @@ function App() {
 
     if (!introSection) return undefined
 
+    if (!('IntersectionObserver' in window)) {
+      setIntroVisible(true)
+      return undefined
+    }
+
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
         setIntroVisible(true)

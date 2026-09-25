@@ -406,22 +406,12 @@ img {
   letter-spacing: 0.14em;
   line-height: 1.45;
   transform: translateX(-56px);
+  transition: opacity 1s ease, transform 1s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .intro-section.is-visible p {
-  animation: intro-text-reveal 1s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-@keyframes intro-text-reveal {
-  from {
-    opacity: 0;
-    transform: translateX(-56px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .watch-section {

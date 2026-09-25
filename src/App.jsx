@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const navItems = [
   { icon: '◉', label: 'Home' },
@@ -74,6 +74,8 @@ function App() {
   const [activeSlide, setActiveSlide] = useState(0)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [showMobileNav, setShowMobileNav] = useState(false)
+  const [introVisible, setIntroVisible] = useState(false)
+  const introRef = useRef(null)
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -81,6 +83,22 @@ function App() {
     }, 6000)
 
     return () => clearInterval(intervalId)
+  }, [])
+
+  useEffect(() => {
+    const introSection = introRef.current
+
+    if (!introSection) return undefined
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setIntroVisible(true)
+        observer.disconnect()
+      }
+    }, { threshold: 0.25 })
+
+    observer.observe(introSection)
+    return () => observer.disconnect()
   }, [])
 
   useEffect(() => {
@@ -204,7 +222,7 @@ function App() {
           </div>
         </section>
 
-        <section className="intro-section" aria-label="Studio introduction">
+        <section ref={introRef} className={introVisible ? 'intro-section is-visible' : 'intro-section'} aria-label="Studio introduction">
           <p>Our films bring people closer.</p>
         </section>
 

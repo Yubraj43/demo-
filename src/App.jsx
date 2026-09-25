@@ -204,6 +204,10 @@ function App() {
           </div>
         </section>
 
+        <section className="intro-section" aria-label="Studio introduction">
+          <p>Our films bring people closer.</p>
+        </section>
+
         <section className="watch-section">
           <div className="section-head">
             <span className="section-kicker">Watch a trailer</span>

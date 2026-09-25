@@ -388,6 +388,30 @@ img {
   padding: 48px 12px 0;
 }
 
+.intro-section {
+  min-height: clamp(220px, 30vw, 390px);
+  display: flex;
+  align-items: center;
+  padding: 72px clamp(28px, 7vw, 110px);
+  background: #fff;
+  color: #111;
+}
+
+.intro-section p {
+  max-width: 720px;
+  margin: 0;
+  font-family: 'DM Mono', monospace;
+  font-size: clamp(1.25rem, 2.4vw, 2.2rem);
+  letter-spacing: 0.14em;
+  line-height: 1.45;
+}
+
+.watch-section {
+  padding: clamp(72px, 9vw, 132px) clamp(20px, 3vw, 48px) 60px;
+  background: #fff;
+  color: #111;
+}
+
 .section-head {
   display: flex;
   align-items: center;
@@ -412,6 +436,10 @@ img {
   text-transform: uppercase;
 }
 
+.watch-section .section-meta {
+  color: rgba(0, 0, 0, 0.58);
+}
+
 .film-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -419,7 +447,7 @@ img {
 }
 
 .film-card {
-  color: var(--text);
+  color: #111;
 }
 
 .film-image {
@@ -684,15 +712,18 @@ img {
 
 .chip-row {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 10px;
   margin: 0 0 26px;
+  overflow-x: auto;
+  padding-bottom: 4px;
 }
 
 .chip {
-  border: 1px solid rgba(255,255,255,0.14);
-  background: rgba(255,255,255,0.03);
-  color: rgba(255,255,255,0.75);
+  flex: 0 0 auto;
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  background: #fff;
+  color: rgba(0, 0, 0, 0.75);
   border-radius: 999px;
   padding: 10px 16px;
   font-size: 0.72rem;

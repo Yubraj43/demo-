@@ -400,7 +400,7 @@ img {
 .intro-section p {
   max-width: none;
   margin: 0;
-  width: 0;
+  width: max-content;
   overflow: hidden;
   font-family: 'DM Mono', monospace;
   font-size: clamp(1.25rem, 2.4vw, 2.2rem);
@@ -408,6 +408,7 @@ img {
   line-height: 1.45;
   white-space: nowrap;
   border-right: 2px solid #111;
+  clip-path: inset(0 100% 0 0);
 }
 
 .intro-section.is-visible p {
@@ -416,11 +417,11 @@ img {
 
 @keyframes intro-typewriter {
   from {
-    width: 0;
+    clip-path: inset(0 100% 0 0);
   }
 
   to {
-    width: 30ch;
+    clip-path: inset(0 0 0 0);
   }
 }
 

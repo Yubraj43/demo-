@@ -921,7 +921,7 @@ img {
 
 .site-footer {
   position: relative;
-  min-height: 460px;
+  min-height: 620px;
   overflow: hidden;
   background: #fff;
   padding-bottom: 30px;
@@ -1180,7 +1180,7 @@ img {
   }
 
   .site-footer {
-    min-height: 340px;
+    min-height: 460px;
   }
 
   .video-contact-details {

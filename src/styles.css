@@ -1213,7 +1213,7 @@ img {
   }
 
   .hero-section {
-    min-height: calc(100svh - 12px);
+    min-height: 86svh;
     margin-top: 0;
     border-radius: 0 0 24px 24px;
   }

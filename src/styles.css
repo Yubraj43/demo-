@@ -152,6 +152,10 @@ img {
   color: var(--text);
 }
 
+.mobile-bottom-nav {
+  display: none;
+}
+
 .primary-button,
 .faq-button,
 .small-button {
@@ -1095,13 +1099,21 @@ img {
   }
 
   .sidebar {
-    position: static;
+    display: none;
+  }
+
+  .sidebar.mobile-menu-open {
+    position: fixed;
+    z-index: 20;
+    inset: 0 0 92px;
+    display: flex;
     width: 100%;
+    max-width: none;
     height: auto;
-    min-height: unset;
-    overflow-y: visible;
-    border-right: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    min-height: 0;
+    overflow-y: auto;
+    border: none;
+    padding: 28px 24px 110px;
   }
 
   .brand {
@@ -1119,7 +1131,60 @@ img {
   }
 
   .content-panel {
-    padding: 12px 12px 16px;
+    padding: 12px 12px 116px;
+  }
+
+  .mobile-bottom-nav {
+    position: fixed;
+    z-index: 30;
+    right: 20px;
+    bottom: 18px;
+    left: 20px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    min-height: 74px;
+    padding: 10px 12px;
+    border-radius: 999px;
+    background: #050505;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .mobile-menu-button,
+  .mobile-enquire-button {
+    border: none;
+    border-radius: 999px;
+    padding: 14px 20px;
+    font-size: 0.95rem;
+    font-weight: 700;
+  }
+
+  .mobile-menu-button {
+    justify-self: start;
+    background: #fff;
+    color: #111;
+  }
+
+  .mobile-enquire-button {
+    justify-self: end;
+    background: var(--red);
+    color: #fff;
+  }
+
+  .mobile-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    font-family: 'Fraunces', serif;
+    font-size: 0.55rem;
+    line-height: 0.8;
+    text-align: center;
+  }
+
+  .mobile-brand strong {
+    font-size: 0.85rem;
+    font-weight: 600;
   }
 
   .topbar {

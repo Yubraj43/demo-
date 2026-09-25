@@ -72,6 +72,7 @@ const faqs = [
 
 function App() {
   const [activeSlide, setActiveSlide] = useState(0)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -95,7 +96,7 @@ function App() {
 
   return (
     <div className="page-shell">
-      <aside className="sidebar">
+      <aside className={mobileMenuOpen ? 'sidebar mobile-menu-open' : 'sidebar'}>
         <div className="brand" aria-label="Wedding Flim Maker for you logo">
           <span className="brand-small">The</span>
           <span className="brand-large">Wedding</span>
@@ -122,6 +123,20 @@ function App() {
           </button>
         </div>
       </aside>
+
+      <nav className="mobile-bottom-nav" aria-label="Mobile navigation">
+        <button type="button" className="mobile-menu-button" onClick={() => setMobileMenuOpen((open) => !open)}>
+          {mobileMenuOpen ? 'Close' : 'Menu'}
+        </button>
+        <div className="mobile-brand" aria-label="Wedding Flim Maker for you">
+          <span>The</span>
+          <strong>Wedding</strong>
+          <strong>Flim Maker</strong>
+        </div>
+        <button type="button" className="mobile-enquire-button">
+          Enquire
+        </button>
+      </nav>
 
       <main className="content-panel">
         <header className="topbar">
